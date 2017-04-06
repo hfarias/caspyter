@@ -53,7 +53,7 @@ Caspyter will show you this message:
 Copy/paste this URL into your browser when you connect for the first time,
     to login with a token:
         http://0.0.0.0:8081/?token=908b0654058e58f6a81f4f54cf392f1a0f401f2da9d6cc62
-~~~python
+~~~
 
 Now you must replace 0.0.0.0 for localhost in you browser.
 
