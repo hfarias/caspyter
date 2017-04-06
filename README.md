@@ -13,17 +13,17 @@ To install follow the following instructions [Download Docker Community Edition]
 
 
 After installation of docker, create a folder named CASPYTER and next run the next command in your terminal:
-   ```python
+~~~python
       docker run --name caspyter  -it -d \
       -v /rute/to/caspyter:/data \
       -p 8022:22 -p 8080:80 -p 8081:8081\
       -h caspyter ubuntu:14.04
-    ```
+~~~
 
 It's time to access the container, run the next command in your terminal:
-   ```python
+~~~python
     docker exec -it caspyter /bin/bash
-    ```
+~~~
 
 ### 2.- Clone Caspyter/Casanova files
 
