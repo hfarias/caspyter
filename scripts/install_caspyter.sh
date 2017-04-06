@@ -63,6 +63,6 @@ mkdir /home/caspyter/notebook
 cd /home/caspyter/notebook
 wget -r -np -nH --cut-dirs=4 --reject "index.html*" https://bulk.cv.nrao.edu/synth/dred_workshops/sis14/working_data/sis14_twhya_calibrated_flagged.ms/
 
-mv /home/caspyter/caspyter/notebook/First_Look_at_Imaging.ipynb /home/caspyter/notebook
+mv /home/caspyter/caspyter/notebook/First_Look_at_Imaging.ipynb /home/caspyter/notebook/First_Look_at_Imaging.ipynb
 
 EOF
