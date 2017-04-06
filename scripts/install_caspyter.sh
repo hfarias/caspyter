@@ -36,8 +36,8 @@ mkdir /home/caspyter/casapy
 
 echo "Download CASA"
 wget https://almascience.eso.org/arcdistribution/casa-distro/linux/release/casa-release-4.5.2-el6.tar.gz
-tar zxf /home/caspyter/caspyter/casa-release-4.5.2-el6.tar.gz
-mv /home/caspyter/caspyter/casa-release-4.5.2-el6 /home/caspyter/casapy/casa-release-4.5.2-el6
+tar zxf /home/caspyter/casa-release-4.5.2-el6.tar.gz
+mv /home/caspyter/casa-release-4.5.2-el6 /home/caspyter/casapy/casa-release-4.5.2-el6
 
 #_____________Install patchELF_______________________
 echo "Install patchELF"
@@ -55,5 +55,14 @@ source /home/caspyter/.bashrc
 #_____________Install Casanova_______________________
 echo "Install Casanova"
 source /home/caspyter/caspyter/install_casanova
+
+#_____________Download Data Test_______________________
+
+mkdir /home/caspyter/notebook
+
+cd /home/caspyter/notebook
+wget -r -np -nH --cut-dirs=4 --reject "index.html*" https://bulk.cv.nrao.edu/synth/dred_workshops/sis14/working_data/sis14_twhya_calibrated_flagged.ms/
+
+mv /home/caspyter/caspyter/notebook/First_Look_at_Imaging.ipynb /home/caspyter/notebook
 
 EOF
