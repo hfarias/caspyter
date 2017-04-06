@@ -30,10 +30,11 @@ git clone https://github.com/hfarias/caspyter.git
 
 #_____________USER CASPYTER_______________________
 
-~/
 
 mkdir /home/caspyter/lab
 mkdir /home/caspyter/casapy
+
+echo "Download CASA"
 wget https://almascience.eso.org/arcdistribution/casa-distro/linux/release/casa-release-4.5.2-el6.tar.gz
 tar zxf /home/caspyter/caspyter/casa-release-4.5.2-el6.tar.gz
 mv /home/caspyter/caspyter/casa-release-4.5.2-el6 /home/caspyter/casapy/casa-release-4.5.2-el6
@@ -53,6 +54,6 @@ source /home/caspyter/.bashrc
 
 #_____________Install Casanova_______________________
 echo "Install Casanova"
-source /home/caspyter/caspyter/script/install_casanova
+source /home/caspyter/caspyter/install_casanova
 
 EOF
