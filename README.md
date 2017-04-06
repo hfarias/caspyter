@@ -32,4 +32,18 @@ This project is base on [Casanova](https://github.com/kaspervd/casanova) project
 
 ### 3.- Start Caspyter
 
+Firts go to caspyter user and restart bash variables
 
+~~~python
+    su caspyter
+    cd /home/caspyter
+    source /home/caspyter/.bashrc
+~~~
+
+then got to the notebook folder and start caspyter
+
+
+~~~python
+    cd /home/caspyter/notebook
+    caspyter
+~~~
