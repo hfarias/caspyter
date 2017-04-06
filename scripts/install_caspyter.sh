@@ -41,7 +41,7 @@ mv /home/caspyter/casa-release-4.5.2-el6 /home/caspyter/casapy/casa-release-4.5.
 
 #_____________Install patchELF_______________________
 echo "Install patchELF"
-sudo sh /home/caspyter/caspyter/script/patchELF.sh
+sudo sh /home/caspyter/caspyter/scripts/patchELF.sh
 
 
 #_____________Install Anaconda_______________________
@@ -49,12 +49,14 @@ sudo sh /home/caspyter/caspyter/script/patchELF.sh
 echo "Install Anaconda"
 wget https://repo.continuum.io/archive/Anaconda2-4.3.1-Linux-x86_64.sh -O /home/caspyter/lab/Anaconda.sh
 bash /home/caspyter/lab/Anaconda.sh -b -p /home/caspyter/anaconda2
-echo 'export PATH="$HOME/anaconda2/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/home/caspyter/anaconda2/bin:$PATH"' >> /home/caspyter/.bashrc
 source /home/caspyter/.bashrc
 
 #_____________Install Casanova_______________________
 echo "Install Casanova"
 source /home/caspyter/caspyter/install_casanova
+
+echo 'alias caspyter= "source /home/caspyter/casapy/casanova_startup"' >> /home/caspyter/.bashrc
 
 #_____________Download Data Test_______________________
 
