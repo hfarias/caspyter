@@ -57,7 +57,7 @@ source /home/caspyter/.bashrc
 echo "Install Casanova"
 source /home/caspyter/caspyter/install_casanova
 
-echo 'alias caspyter= "source /home/caspyter/casapy/casanova_startup"' >> /home/caspyter/.bashrc
+echo 'alias caspyter="source /home/caspyter/casapy/casanova_startup"' >> /home/caspyter/.bashrc
 
 #_____________Download Data Test_______________________
 
