@@ -5,7 +5,7 @@
 ########################################################################
 
 # Where this file is located:
-infodir=/home/caspyter/casanova
+infodir=/home/caspyter/caspyter
 
 # Where you install casa
 casainstalldir=/home/caspyter/casapy

@@ -36,6 +36,7 @@ mkdir /home/caspyter/casapy
 
 echo "Download CASA"
 wget https://almascience.eso.org/arcdistribution/casa-distro/linux/release/casa-release-4.5.2-el6.tar.gz
+echo "unzip CASA"
 tar zxf /home/caspyter/casa-release-4.5.2-el6.tar.gz
 mv /home/caspyter/casa-release-4.5.2-el6 /home/caspyter/casapy/casa-release-4.5.2-el6
 
