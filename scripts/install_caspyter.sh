@@ -34,6 +34,7 @@ git clone https://github.com/hfarias/caspyter.git
 
 mkdir /home/caspyter/lab
 mkdir /home/caspyter/casapy
+wget https://almascience.eso.org/arcdistribution/casa-distro/linux/release/casa-release-4.5.2-el6.tar.gz
 tar zxf /home/caspyter/caspyter/casa-release-4.5.2-el6.tar.gz
 mv /home/caspyter/caspyter/casa-release-4.5.2-el6 /home/caspyter/casapy/casa-release-4.5.2-el6
 
