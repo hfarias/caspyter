@@ -1,0 +1,88 @@
+#! /bin/sh
+
+########################################################################
+# Edit these paths to your own situation                               #
+########################################################################
+
+# Where this file is located:
+infodir=/home/caspyter/casanova
+
+# Where you install casa
+casainstalldir=/home/caspyter/casapy
+
+# Create python_packages directory, don't change this line
+mkdir -m 777 $casainstalldir/python_packages
+
+# Note that your release may differ, so possibly edit the path
+casa=$casainstalldir/casa-release-4.5.2-el6
+python=$casainstalldir/python_packages
+
+########################################################################
+# Only change the paths above                                          #
+# No need to change anything below this block                          #
+########################################################################
+
+# Copy the casat dependency files
+cd $casa/lib/python2.7
+xargs cp -rt $python < $infodir/dependencies.txt
+
+# Copy the casa tasks (casat)
+mkdir -m 777 $python/casat
+xargs cp -rt $python/casat < $infodir/tasks.txt
+
+# Copy the updated files to python_packages and casat
+cp $infodir/code/TablePlotTkAgg.* $python
+cp $infodir/code/taskinit.* $python
+cp $infodir/code/__init__.py $python/casat 
+
+# Symlinks
+# I don't really recall why I needed these but beter safe than sorry
+ln -s $casa/data/geodetic/Observatories $casa/data/Observatories
+ln -s $casa/data $casainstalldir
+
+# Copy the startup script to the casa install directory
+cp $infodir/casanova_startup $casainstalldir
+
+# Add the new ftw() task
+cp $infodir/code/task_ftw.* $python
+cp $infodir/code/ftw.p* $python/casat
+cp $infodir/code/ftw.xml $casa/xml
+
+########################################################################
+# The following is based on Dr. Peter K. G. Williams work              #
+# See: https://newton.cx/~peter/2014/02/casa-in-python-without-casapy/ #
+# This concerns the installation of the casa toolkit (casac)           #
+########################################################################
+cd $casa/lib
+ 
+# copy basic Python files
+cp -a python2.7/casac.py python2.7/__casac__ $python
+ 
+# copy dependent libraries, with moderate sophistication
+for f in lib*.so* ; do
+  if [ -h $f ] ; then
+    cp -a $f $python/__casac__ # copy symlinks as links
+  else
+    case $f in
+      *_debug.so) ;; # skip -- actually text files
+      libgomp.*)
+        # somehow patchelf fries this particular file
+        cp -a $f $python/__casac__ ;;
+      *)
+        cp -a $f $python/__casac__
+        patchelf --set-rpath '$ORIGIN' $python/__casac__/$f ;;
+    esac
+  fi
+done
+ 
+# patch rpaths of Python module binary files
+cd $python/__casac__
+for f in _*.so ; do
+  patchelf --set-rpath '$ORIGIN' $f
+done
+
+# Remove libgfortran from casac since it conflicts with already installed
+# libgfortran. Comes down to removing the two files from __casac__ folder
+# (and possibly store them somewhere else).
+# This step is even more hacky than the things above so do this manually
+# Hopefully someone will find a better, more elegant fix.
